@@ -1,0 +1,51 @@
+# Environments
+venv/
+env/
+.env
+env3.*
+Pipfile.lock
+
+# IDEs
+.idea
+.vscode
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints
+.mypy_cache
+.pytest_cache
+.coverage
+coverage.xml
+htmlcov
+.cache
+
+# Distribution / Build
+dist/
+site/
+docs_build/
+site_build/
+node_modules/
+build/
+
+# Database
+test.db
+*.sqlite
+
+# Logs
+log.txt
+*.log
+
+# Misc
+.DS_Store
+.netlify
+*~
+.*.sw?
+docs.zip
+archive.zip
+
+# alembic
+alembic/versions/
+**/alembic/versions/
