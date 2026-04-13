@@ -1,6 +1,7 @@
 // src/components/navbar.js
 import { openModal } from '../modal/authModal.js'
 import { storage } from '../../services/storage.js'
+import { router } from '../../app/router.js'
 
 export function renderNavbar() {
   const isAuthenticated = storage.isAuthenticated()
@@ -112,6 +113,50 @@ const authAction = isAuthenticated
   const searchToggle = document.getElementById('search-toggle')
   const mobileSearchPanel = document.getElementById('mobile-search-panel')
   const mobileSearchInput = mobileSearchPanel?.querySelector('.search-input')
+  const desktopSearchInput = document.querySelector('.search-container--desktop .search-input')
+
+  function runSearch(term) {
+    const normalized = (term || '').trim()
+    const url = normalized
+      ? `/products?search=${encodeURIComponent(normalized)}`
+      : '/products'
+
+    router.navigate(url)
+
+    if (searchToggle && mobileSearchPanel && mobileSearchPanel.classList.contains('is-open')) {
+      mobileSearchPanel.classList.remove('is-open')
+      searchToggle.setAttribute('aria-expanded', 'false')
+      mobileSearchPanel.setAttribute('aria-hidden', 'true')
+    }
+  }
+
+  function bindSearch(containerSelector) {
+    const container = document.querySelector(containerSelector)
+    if (!container) return
+
+    const input = container.querySelector('.search-input')
+    const button = container.querySelector('.search-button')
+    if (!input || !button) return
+
+    button.addEventListener('click', () => {
+      runSearch(input.value)
+    })
+
+    input.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter') return
+      event.preventDefault()
+      runSearch(input.value)
+    })
+
+    input.addEventListener('input', () => {
+      if (desktopSearchInput && input !== desktopSearchInput) {
+        desktopSearchInput.value = input.value
+      }
+      if (mobileSearchInput && input !== mobileSearchInput) {
+        mobileSearchInput.value = input.value
+      }
+    })
+  }
 
   if (searchToggle && mobileSearchPanel) {
     searchToggle.addEventListener('click', () => {
@@ -124,6 +169,9 @@ const authAction = isAuthenticated
       }
     })
   }
+
+  bindSearch('.search-container--desktop')
+  bindSearch('.search-container--mobile')
 }
 
 

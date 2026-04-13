@@ -1,6 +1,7 @@
 // src/pages/home/home.js
 
 import { productsService } from '../../services/api.js'
+import { createProductCard } from '../../components/productcard/productcard.js'
 
 export function renderHome() {
   const app = document.getElementById('app')
@@ -246,44 +247,3 @@ async function loadFeaturedProducts() {
 
 // Crea una card de producto como nodo del DOM 
 
-function createProductCard(product) {
-  const item = product?.data ?? product ?? {}
-  const card = document.createElement('a')
-  card.className = 'product-card'
-  card.setAttribute('data-link', '')
-
-  const productId = item.id
-  card.href = productId ? `/products/${productId}` : '/products'
-
-  // imagen — si no hay imagen muestra un placeholder
-  const imageUrl = item.thumbnail || item.images?.[0] || '/assets/img/placeholder.png'
-
-  const img = document.createElement('img')
-  img.className = 'product-card__img'
-  img.src = imageUrl
-  img.alt = item.title || 'Producto'
-  img.loading = 'lazy'
-  // evita que el drag mueva la imagen en vez del track
-  img.draggable = false
-
-  const body = document.createElement('div')
-  body.className = 'product-card__body'
-
-  const name = document.createElement('p')
-  name.className = 'product-card__name'
-  name.textContent = item.title || 'Producto sin nombre'
-
-  const price = document.createElement('p')
-  price.className = 'product-card__price'
-  const numericPrice = Number(item.price)
-  price.textContent = Number.isFinite(numericPrice)
-    ? `$${numericPrice.toLocaleString('es-CO')}`
-    : 'Precio no disponible'
-
-  body.appendChild(name)
-  body.appendChild(price)
-  card.appendChild(img)
-  card.appendChild(body)
-
-  return card
-} 

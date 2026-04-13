@@ -1,0 +1,186 @@
+/* card de producto */
+
+.product-card {
+  /* cada card ocupa exactamente 1/3 del wrapper — fijo no se encoge */
+  flex: 0 0 calc(33.333% - 0.67rem);
+
+  display: flex;
+  flex-direction: column;
+  background: #f3f4f8;
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+
+  /* todas las cards miden lo mismo verticalmente */
+  min-height: 452px;
+  padding: 0.9rem;
+
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.14);
+}
+
+.product-card__media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.95rem;
+  overflow: hidden;
+  background: #ffffff;
+  min-height: clamp(14rem, 20vw, 17rem);
+  padding: 0.5rem;
+}
+
+.product-card__discount-badge {
+  position: absolute;
+  left: 0.45rem;
+  top: 0.45rem;
+  z-index: 2;
+  background: #ef4444;
+  color: #ffffff;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.74rem;
+  letter-spacing: 0.01em;
+  padding: 0.38rem 0.62rem;
+  line-height: 1;
+}
+
+.product-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.product-card__body {
+  padding: 1rem 0.42rem 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  justify-content: flex-start;
+}
+
+.product-card__name {
+  font-size: clamp(1rem, 1.55vw, 1.12rem);
+  font-weight: 500;
+  color: #667085;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  min-height: 3.1em;
+
+  /* corta el texto con ... si es muy largo */
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.product-card__price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.product-card__price {
+  font-size: clamp(1.25rem, 2vw, 2.05rem);
+  font-weight: 800;
+  color: #111e6b;
+  line-height: 1;
+}
+
+.product-card__price-old {
+  font-size: clamp(0.98rem, 1.35vw, 1.25rem);
+  color: #98a2b3;
+  text-decoration: line-through;
+}
+
+.product-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.32rem;
+  margin-top: -0.1rem;
+}
+
+.product-card__stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.08rem;
+}
+
+.product-card__star {
+  font-size: 1.05rem;
+  line-height: 1;
+  color: #cbd5e1;
+}
+
+.product-card__star.is-filled {
+  color: #f6c200;
+}
+
+.product-card__reviews {
+  font-size: 1rem;
+  color: #9ca3af;
+}
+
+.products-loading,
+.products-error {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  padding: 2rem;
+}
+
+/*  responsive  */
+
+/* tablet — las cards se hacen un poco mas pequeñas pero siguen siendo 1/3 */
+@media (max-width: 900px) {
+  .product-card {
+    flex: 0 0 calc(33.333% - 0.67rem);
+    min-height: 355px;
+  }
+
+  .product-card__img {
+    height: 100%;
+  }
+}
+
+/* movil — layout cambia a columna */
+@media (max-width: 640px) {
+
+  .offers-section {
+    margin: 0;
+    padding: 1.5rem 1rem;
+    border-radius: 0;
+  }
+
+  .offers-wrapper {
+    grid-template-columns: 1fr;   /* una sola columna */
+    gap: 1.5rem;
+  }
+
+  .offers-info {
+    text-align: center;
+    align-items: center;
+  }
+
+  /* en movil cada card muestra 1 y media — así el usuario sabe que puede deslizar */
+  .product-card {
+    flex: 0 0 75vw;
+    min-height: 360px;
+  }
+
+
+}

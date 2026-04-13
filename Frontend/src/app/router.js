@@ -2,6 +2,7 @@
 
 import { renderHome } from '../pages/home/home.js'
 import { renderAccountPage } from '../pages/account/account.js'
+import { renderProductsPage } from '../pages/prodcuts/products.js'
 import { openModal }       from '../components/modal/authModal.js'
 import { storage }         from '../services/storage.js'
 
@@ -10,6 +11,7 @@ import { storage }         from '../services/storage.js'
 const routes = {
   '/':          renderHome,
   '/home':      renderHome,
+  '/products':  renderProductsPage,
   '/login':     () => {
     renderHome()
     openModal('login')
