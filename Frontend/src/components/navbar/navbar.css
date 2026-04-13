@@ -1,0 +1,276 @@
+.navbar-shell {
+  width: 100%;
+  max-width: 100%;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f2f3f7;
+    padding: 0.7rem 2rem;
+    height: 7rem;
+    width: 100%;
+    overflow: hidden;
+    max-width: 100%;
+    
+    border-bottom: 6px solid;
+    border-image: linear-gradient(to right, #111e6b, #ed434e) 1;
+}
+
+.nav-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    min-width: 0;
+    flex: 1;
+    align-items: stretch;
+    column-gap: 2rem;
+    max-width: 100%;
+}
+
+  .search-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 0;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #111e6b;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .search-toggle svg {
+    display: block;
+  }
+
+.logo{
+    height: 40px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+.search-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  min-width: 0;
+
+    margin-left: 20px;
+    height: auto;
+    width: auto;
+    background-color: white;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+
+}
+
+.search-input{
+    flex: 1;
+  min-width: 0;
+    height: 100%;
+    border: 1px solid white;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    
+}
+
+.search-button {
+  flex-shrink: 0;
+  width: 3rem; height: 100%;
+  border: 1px solid white;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  background: transparent;  /* sin fondo, sobre el blanco del input */
+  cursor: pointer;
+  border-left: grey solid 1px;
+
+}
+
+/*Estilos para cuenta y carrito*/
+
+.nav-actions {
+    flex-shrink: 0;
+    width: auto;
+    gap: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/*Estilos para la parte de cuenta*/
+
+.acc-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+    gap: 0.2rem;
+}
+
+.acc-container p{
+    font-size: 0.9rem;
+    color: #ed434e;
+}
+
+a{
+    color: #111e6b;
+    text-decoration: none;
+}
+
+.btn-link{
+    background: none;
+    color: #111e6b;
+}
+
+
+
+
+/* estilos para el carrito */
+
+/*  estilos icono del carrit*/
+
+.cart-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-container p {
+  font-size: 1rem;
+  color: #111e6b;
+  font-weight: 700;
+}
+.cart-icon {
+  cursor: pointer;
+  overflow: visible; /* Permite que el círculo crezca sin cortarse */
+}
+
+.badge-group {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: 34px 14px; /* Eje de rotación/escalado en el centro del círculo */
+}
+
+/* El hover se aplica al pasar el mouse por todo el icono, pero solo escala el badge */
+.cart-container:hover .badge-group {
+  transform: scale(1.3);
+}   
+
+
+
+/* Estilos para el icono de usuarios  ----------------------------------------------------*/
+/* Contenedor general del ícono */
+.users-icon {
+  width: 30px; /* Puedes ajustar este tamaño a lo que necesites */
+  height: auto;
+  display: none;
+}
+
+@media (max-width: 1280px) {
+
+    .users-icon {
+    display: block;
+    }
+
+    .acc-links-container{
+        display: none;
+    }
+
+    .nav-actions {
+        justify-content: flex-end;
+        width: auto;
+    }
+
+}
+
+  .mobile-search-panel {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-0.75rem);
+    pointer-events: none;
+    visibility: hidden;
+    transition: max-height 0.28s ease, opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease;
+  }
+
+  .mobile-search-panel.is-open {
+    max-height: 10rem;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .search-container--mobile {
+    margin: 0.75rem 1rem 0;
+    width: calc(100% - 2rem);
+    height: 7rem;
+    flex: none;
+  }
+
+  .search-container--mobile .search-input {
+    min-height: 100%;
+  }
+
+  @media (max-width: 640px) {
+    .navbar {
+      padding: 0.7rem 1rem;
+    }
+
+    .search-container--desktop {
+      display: none;
+    }
+
+    .search-toggle {
+      display: flex;
+    }
+
+    .nav-inner {
+      justify-content: space-between;
+      column-gap: 1rem;
+    }
+
+    .nav-actions {
+      margin-left: auto;
+      min-width: 0;
+      width: auto;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+
+    .cart-container {
+      flex-shrink: 0;
+    }
+
+    .acc-links-container {
+      display: none;
+    }
+
+    .users-icon {
+      display: block;
+    }
+
+    .mobile-search-panel.is-open {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+/* Color azul oscuro del círculo base */
+.icon-bg {
+  fill: #0c185c; 
+}
+
+/* Color de las siluetas (coincide con el fondo de tu foto) */
+.icon-figure {
+  fill: #f4f5f8; 
+}
+

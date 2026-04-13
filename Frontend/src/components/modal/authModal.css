@@ -1,0 +1,151 @@
+/* src/components/modal/authModal.css */
+
+/*  panel flotante anclado al botón login  */
+.modal-overlay {
+  position: fixed;
+  top: 80px;
+  left: calc(100vw - 380px);
+  z-index: 1000;
+
+  /* invisible por defecto */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/*  la card del modal  */
+.modal-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: min(360px, calc(100vw - 24px));
+  position: relative;
+  border: 1px solid #e5e7eb;
+  height: auto;
+
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+
+
+  /* animación de entrada — sube desde abajo */
+  transform: translateY(8px);
+  transition: transform 0.25s ease;
+}
+
+h2.modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color:#111e6b;
+  text-align: center;
+}
+
+h3{
+    text-align: center;
+    color: #4b5563;
+
+}
+
+input{
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.modal-card::before{
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 134px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #ffffff;
+}
+
+
+.modal-overlay--visible .modal-card {
+  transform: translateY(0);
+}
+
+.login-modal-form{
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+
+}
+
+/*  boton cerrar  */
+.modal-close {
+  display: flex;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: none;
+  border: none;
+  font-size: var(--text-lg);
+  cursor: pointer;
+  color: var(--color-text-muted);
+  line-height: 1;
+  padding: var(--space-1);
+
+  align-self: flex-start;
+}
+
+/*  transicion entre vistas  */
+.modal-view {
+  animation: fadeIn 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: stretch;
+  height: 300px;
+}
+
+.modal-view--hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/*  titulo  */
+.modal-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  text-align: left;
+}
+
+/*  boton link para alternar vistas  */
+.btn-link {
+  background: none;
+  border: none;
+  color: #111e6b;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+}
+
+.modal-footer {
+  margin-top: var(--space-4);
+  text-align: left;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}

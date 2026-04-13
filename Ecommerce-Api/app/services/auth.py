@@ -7,6 +7,7 @@ from app.core.security import verify_password, get_user_token, get_token_payload
 from app.core.security import get_password_hash
 from app.utils.responses import ResponseHandler
 from app.schemas.auth import Signup
+from sqlalchemy.exc import IntegrityError
 
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
@@ -30,8 +31,15 @@ class AuthService:
         user.password = hashed_password
         db_user = User(id=None, **user.model_dump())
         db.add(db_user)
-        db.commit()
-        db.refresh(db_user)
+        try:
+            db.commit()
+            db.refresh(db_user)
+        except IntegrityError:
+            db.rollback()
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail="Username o email ya existe"
+            )
         return ResponseHandler.create_success(db_user.username, db_user.id, db_user)
 
     @staticmethod

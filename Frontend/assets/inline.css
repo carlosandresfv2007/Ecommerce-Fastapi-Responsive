@@ -1,0 +1,155 @@
+
+  /* We load the font used for the integration with Shopify Reviews to load our own stars */
+  @font-face {
+    font-family: "font-theme-star";
+    src: url(//bulevartienda.com/cdn/shop/t/12/assets/font-theme-star.eot?v=178649971611478077551735489649);
+    src: url(//bulevartienda.com/cdn/shop/t/12/assets/font-theme-star.eot?%23iefix&v=178649971611478077551735489649) format("embedded-opentype"), url(//bulevartienda.com/cdn/shop/t/12/assets/font-theme-star.woff2?v=176977276741202493121735489649) format("woff2"), url(//bulevartienda.com/cdn/shop/t/12/assets/font-theme-star.ttf?v=17527569363257290761735489649) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+  }
+
+  @font-face {
+  font-family: Poppins;
+  font-weight: 900;
+  font-style: normal;
+  font-display: fallback;
+  src: url("//bulevartienda.com/cdn/fonts/poppins/poppins_n9.eb6b9ef01b62e777a960bfd02fc9fb4918cd3eab.woff2") format("woff2"),
+       url("//bulevartienda.com/cdn/fonts/poppins/poppins_n9.6501a5bd018e348b6d5d6e8c335f9e7d32a80c36.woff") format("woff");
+}
+
+  @font-face {
+  font-family: Poppins;
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+  src: url("//bulevartienda.com/cdn/fonts/poppins/poppins_n4.0ba78fa5af9b0e1a374041b3ceaadf0a43b41362.woff2") format("woff2"),
+       url("//bulevartienda.com/cdn/fonts/poppins/poppins_n4.214741a72ff2596839fc9760ee7a770386cf16ca.woff") format("woff");
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 600;
+  font-style: normal;
+  font-display: fallback;
+  src: url("//bulevartienda.com/cdn/fonts/poppins/poppins_n6.aa29d4918bc243723d56b59572e18228ed0786f6.woff2") format("woff2"),
+       url("//bulevartienda.com/cdn/fonts/poppins/poppins_n6.5f815d845fe073750885d5b7e619ee00e8111208.woff") format("woff");
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 900;
+  font-style: italic;
+  font-display: fallback;
+  src: url("//bulevartienda.com/cdn/fonts/poppins/poppins_i9.c9d778054c6973c207cbc167d4355fd67c665d16.woff2") format("woff2"),
+       url("//bulevartienda.com/cdn/fonts/poppins/poppins_i9.67b02f99c1e5afe159943a603851cb6b6276ba49.woff") format("woff");
+}
+
+
+  @font-face {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+  src: url("//bulevartienda.com/cdn/fonts/poppins/poppins_n7.56758dcf284489feb014a026f3727f2f20a54626.woff2") format("woff2"),
+       url("//bulevartienda.com/cdn/fonts/poppins/poppins_n7.f34f55d9b3d3205d2cd6f64955ff4b36f0cfd8da.woff") format("woff");
+}
+
+  @font-face {
+  font-family: Poppins;
+  font-weight: 400;
+  font-style: italic;
+  font-display: fallback;
+  src: url("//bulevartienda.com/cdn/fonts/poppins/poppins_i4.846ad1e22474f856bd6b81ba4585a60799a9f5d2.woff2") format("woff2"),
+       url("//bulevartienda.com/cdn/fonts/poppins/poppins_i4.56b43284e8b52fc64c1fd271f289a39e8477e9ec.woff") format("woff");
+}
+
+  @font-face {
+  font-family: Poppins;
+  font-weight: 700;
+  font-style: italic;
+  font-display: fallback;
+  src: url("//bulevartienda.com/cdn/fonts/poppins/poppins_i7.42fd71da11e9d101e1e6c7932199f925f9eea42d.woff2") format("woff2"),
+       url("//bulevartienda.com/cdn/fonts/poppins/poppins_i7.ec8499dbd7616004e21155106d13837fff4cf556.woff") format("woff");
+}
+
+
+  :root {
+    --default-text-font-size : 15px;
+    --base-text-font-size    : 17px;
+    --heading-font-family    : Poppins, sans-serif;
+    --heading-font-weight    : 900;
+    --heading-font-style     : normal;
+    --text-font-family       : Poppins, sans-serif;
+    --text-font-weight       : 400;
+    --text-font-style        : normal;
+    --text-font-bolder-weight: 600;
+    --text-link-decoration   : underline;
+
+    --text-color               : #737b97;
+    --text-color-rgb           : 115, 123, 151;
+    --heading-color            : #111e6b;
+    --border-color             : #e7e7e7;
+    --border-color-rgb         : 231, 231, 231;
+    --form-border-color        : #dadada;
+    --accent-color             : #111e6b;
+    --accent-color-rgb         : 17, 30, 107;
+    --link-color               : #ed434e;
+    --link-color-hover         : #d01420;
+    --background               : #f7f7f7;
+    --secondary-background     : #ffffff;
+    --secondary-background-rgb : 255, 255, 255;
+    --accent-background        : rgba(17, 30, 107, 0.08);
+    --corstars                 : #ffce00;
+    --cordabarra               : #702dfa;
+    --cordotexto               : #ffffff;
+    --border-radius-theme      : 12px;
+    --border-radius-btn        : 12px;
+    --btn-primary-color-buy    : #d1d1d4;
+    --btn-primary-color-buy-text         : #ffffff;
+    --discount-percentage-background     : #111e6b;
+    --color-icons-header                 : #111e6b;
+      
+    --error-color       : #ed434e;
+    --error-background  : rgba(237, 67, 78, 0.07);
+    --success-color     : #55ddab;
+    --success-background: rgba(85, 221, 171, 0.11);
+
+    --primary-button-background         : #55ddab;
+    --primary-button-background-rgb     : 85, 221, 171;
+    --primary-button-text-color         : #ffffff;
+    --secondary-button-background       : #702dfa;
+    --secondary-button-background-rgb   : 112, 45, 250;
+    --secondary-button-background-rgb-2 : 112 45 250;
+    --secondary-button-text-color       : #ffffff;
+
+    --footer-background        : #111e6b;
+    --footer-text-color        : #f2f3f7;
+    
+    --header-background      : #f2f3f7;
+    --header-text-color      : #111e6b;
+    --header-bar-background  : #ffffff;
+    --header-bar-text-color  : #737b97;
+    --header-light-text-color: #ed434e;
+    --header-border-color    : rgba(237, 67, 78, 0.3);
+    --header-accent-color    : #55ddab;
+
+    --flickity-arrow-color: #b4b4b4;--product-on-sale-accent           : #ed434e;
+    --product-on-sale-accent-rgb       : 237, 67, 78;
+    --product-on-sale-color            : #ffffff;
+    --product-cor-do-preco-semdesc     : #606781;
+    --product-cor-do-preco             : #111e6b;
+    --product-cor-do-preco-riscado     : #a4a9be;
+    --product-cor-dos-titles           : #111e6b;
+    --product-in-stock-color           : #55ddab;
+    --product-low-stock-color          : #ed434e;
+    --product-sold-out-color           : #d1d1d4;
+    --product-custom-label-1-background: #ff6128;
+    --product-custom-label-1-color     : #ffffff;
+    --product-custom-label-2-background: #a95ebe;
+    --product-custom-label-2-color     : #ffffff;
+    --product-review-star-color        : #ffb647;
+
+    --mobile-container-gutter : 20px;
+    --desktop-container-gutter: 40px;
+  }

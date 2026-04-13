@@ -1,0 +1,56 @@
+:root {
+    --color-primary: #2563eb;
+    --color-text: #111827;
+    --radius: 8px;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--text-font-family, 'Poppins', sans-serif);
+    font-weight: var(--text-font-weight, 400);
+    color: var(--text-color, #111827);
+    background: var(--background, #f7f7f7);
+    width: 100%;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;  
+}
+
+img {
+    max-width: 100%;
+}
+
+#announcement,
+#navbar,
+#app,
+#footer {
+    width: 100%;
+    min-width: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--heading-font-family, 'Poppins', sans-serif);
+    font-weight: var(--heading-font-weight, 700);
+}
+
+#app {
+  min-height: 0; /* fix para que el grid funcione bien en algunos navegadores */
+  width: 100%;
+    overflow-x: clip;
+}

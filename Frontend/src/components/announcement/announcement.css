@@ -1,0 +1,15 @@
+.announcement-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(to right, #111e6b, #ed434e);
+  color: white;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: clamp(0.875rem, 1vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.4;
+}

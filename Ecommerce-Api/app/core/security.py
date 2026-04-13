@@ -64,6 +64,12 @@ async def create_refresh_token(data):
 # Get Payload Of Token
 def get_token_payload(token):
     try:
+        # Swagger users sometimes paste the token value with the "Bearer " prefix.
+        # Normalize it to keep auth validation resilient.
+        if isinstance(token, str):
+            token = token.strip().strip('"').strip("'")
+            if token.lower().startswith("bearer "):
+                token = token.split(" ", 1)[1].strip()
         return jwt.decode(token, settings.secret_key, [settings.algorithm])
     except JWTError:
         raise ResponseHandler.invalid_token('access')
