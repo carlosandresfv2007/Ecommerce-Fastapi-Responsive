@@ -58,7 +58,10 @@ async def create_access_token(data: dict, access_token_expiry=None):
 
 # Create Refresh Token
 async def create_refresh_token(data):
-    return jwt.encode(data, settings.secret_key, settings.algorithm)
+    payload = data.copy()
+    expire = datetime.utcnow() + timedelta(days=settings.refresh_token_expire_days)
+    payload.update({"exp": expire})
+    return jwt.encode(payload, settings.secret_key, settings.algorithm)
 
 
 # Get Payload Of Token
