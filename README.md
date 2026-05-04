@@ -1,7 +1,7 @@
 ### Bulevar Tienda Clone - Vanilla SPA E-commerce
 ## 🚀 Overview
 
-This repository contains a full-stack e-commerce application designed as a near-exact, highly optimized replica of Bulevar Tienda. The project features a high-performance backend built with FastAPI and a lightweight, custom-built Single Page Application (SPA) frontend utilizing strictly Vanilla HTML, CSS, and JavaScript.
+This repository contains a full-stack e-commerce application designed as a near-exact, highly optimized shop. The project features a high-performance backend built with FastAPI and a lightweight, custom-built Single Page Application (SPA) frontend utilizing strictly Vanilla HTML, CSS, and JavaScript.
 
 This project demonstrates how to build a scalable, component-based frontend architecture without the overhead of modern reactive frameworks like React or Vue.
 🛠️ Tech Stack
@@ -35,12 +35,8 @@ Data binding and backend communication are handled through a centralized api ser
 
 ## 📸 Screenshots
 
-# Home (original site )
-<img width="1365" height="603" alt="image" src="https://github.com/user-attachments/assets/9ee5d309-3bfe-4ec2-bfd5-182947b01fd9" />
-<img width="1365" height="613" alt="image" src="https://github.com/user-attachments/assets/75b0282d-ffe6-46be-8b7c-e3fb47dd4340" />
-
-# Home (MY SITE)
 <img width="1365" height="611" alt="image" src="https://github.com/user-attachments/assets/654173d2-80f4-4a2f-a984-fc61f227c57e" />
+
 <img width="1365" height="609" alt="image" src="https://github.com/user-attachments/assets/e3ad35d6-30f3-4ce4-a66e-f683d54d275c" />
 
 
