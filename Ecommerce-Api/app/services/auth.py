@@ -29,9 +29,10 @@ class AuthService:
 
     @staticmethod
     async def signup(db: Session, user: Signup):
-        hashed_password = get_password_hash(user.password)
-        user.password = hashed_password
-        db_user = User(id=None, **user.model_dump())
+        user_dict = user.model_dump()
+        user_dict['password'] = get_password_hash(user_dict['password'])
+        user_dict['email'] = user_dict['email'].lower()
+        db_user = User(id=None, **user_dict)
         db.add(db_user)
         db.commit()
         db.refresh(db_user)

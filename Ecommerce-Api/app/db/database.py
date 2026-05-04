@@ -8,7 +8,7 @@ from app.core.config import settings
 DATABASE_URL = f"postgresql://{settings.db_username}:{settings.db_password}@{settings.db_hostname}:{settings.db_port}/{settings.db_name}"
 
 # Establish a connection to the PostgreSQL database
-engine = create_engine(DATABASE_URL)
+engine = create_engine(DATABASE_URL, pool_pre_ping=True)
 
 
 # Base = declarative_base()
