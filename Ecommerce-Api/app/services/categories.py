@@ -20,7 +20,7 @@ class CategoryService:
 
     @staticmethod
     def create_category(db: Session, category: CategoryCreate):
-        category_dict = category.dict()
+        category_dict = category.model_dump()
         db_category = Category(**category_dict)
         db.add(db_category)
         db.commit()

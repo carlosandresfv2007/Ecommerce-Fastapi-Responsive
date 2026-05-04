@@ -21,9 +21,9 @@ class UserService:
 
     @staticmethod
     def create_user(db: Session, user: UserCreate):
-        hashed_password = get_password_hash(user.password)
-        user.password = hashed_password
-        db_user = User(id=None, **user.model_dump())
+        user_dict = user.model_dump()
+        user_dict['password'] = get_password_hash(user_dict['password'])
+        db_user = User(id=None, **user_dict)
         db.add(db_user)
         db.commit()
         db.refresh(db_user)

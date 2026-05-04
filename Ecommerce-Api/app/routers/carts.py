@@ -3,12 +3,10 @@ from app.db.database import get_db
 from app.services.carts import CartService
 from sqlalchemy.orm import Session
 from app.schemas.carts import CartCreate, CartUpdate, CartOut, CartOutDelete, CartsOutList
-from app.core.security import get_current_user
-from fastapi.security import HTTPBearer
+from app.core.security import auth_scheme
 from fastapi.security.http import HTTPAuthorizationCredentials
 
 router = APIRouter(tags=["Carts"], prefix="/carts")
-auth_scheme = HTTPBearer()
 
 
 # Get All Carts
